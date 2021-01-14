@@ -26,7 +26,6 @@
         merge conflicts between commits changing the GA and those changing the V.
         -->
         <version>7.3.0.GA</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>kitchensink</artifactId>
     <packaging>war</packaging>
@@ -40,6 +39,23 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <repositories>  
+        <repository>  
+          <id>jboss-public-repository-group</id>  
+          <name>JBoss Public Repository Group</name>  
+          <url>https://repository.jboss.org/nexus/content/groups/public/</url>  
+          <layout>default</layout>  
+          <releases>  
+            <enabled>true</enabled>  
+            <updatePolicy>never</updatePolicy>  
+          </releases>  
+          <snapshots>  
+            <enabled>true</enabled>  
+            <updatePolicy>never</updatePolicy>  
+          </snapshots>  
+        </repository>  
+      </repositories>  
 
     <dependencies>
 
