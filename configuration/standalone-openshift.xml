@@ -374,9 +374,13 @@
                     <file-store/>
                 </distributed-cache>
                 <!-- Datagrid Custom Code -->
-                <remote-store remote-servers="remote-jdg-server1"
-                              cache="default" socket-timeout="60000"
-                              preload="true" passivation="false" purge="false" shared="true"/>
+                <invalidation-cache name="jdg">
+                  <locking isolation="REPEATABLE_READ"/>
+                  <transaction mode="BATCH"/>
+                  <remote-store remote-servers="remote-jdg-server1"
+                                cache="default" socket-timeout="60000"
+                                preload="true" passivation="false" purge="false" shared="true"/>
+                </invalidation-cache>
             </cache-container>
             <cache-container name="ejb" aliases="sfsb" default-cache="repl" module="org.wildfly.clustering.ejb.infinispan">
                 <transport lock-timeout="60000"/>
