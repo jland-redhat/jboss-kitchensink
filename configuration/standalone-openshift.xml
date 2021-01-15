@@ -361,7 +361,7 @@
                     <transaction mode="BATCH"/>
                 </replicated-cache>
             </cache-container>
-            <cache-container name="web" default-cache="repl" module="org.wildfly.clustering.web.infinispan">
+<!--             <cache-container name="web" default-cache="repl" module="org.wildfly.clustering.web.infinispan">
                 <transport lock-timeout="60000"/>
                 <replicated-cache name="repl">
                     <locking isolation="REPEATABLE_READ"/>
@@ -373,7 +373,7 @@
                     <transaction mode="BATCH"/>
                     <file-store/>
                 </distributed-cache>
-            </cache-container>
+            </cache-container> -->
             <cache-container name="ejb" aliases="sfsb" default-cache="repl" module="org.wildfly.clustering.ejb.infinispan">
                 <transport lock-timeout="60000"/>
                 <replicated-cache name="repl">
