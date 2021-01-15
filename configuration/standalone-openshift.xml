@@ -361,7 +361,7 @@
                     <transaction mode="BATCH"/>
                 </replicated-cache>
             </cache-container>
-<!--             <cache-container name="web" default-cache="repl" module="org.wildfly.clustering.web.infinispan">
+            <cache-container name="web" default-cache="repl" module="org.wildfly.clustering.web.infinispan">
                 <transport lock-timeout="60000"/>
                 <replicated-cache name="repl">
                     <locking isolation="REPEATABLE_READ"/>
@@ -373,7 +373,11 @@
                     <transaction mode="BATCH"/>
                     <file-store/>
                 </distributed-cache>
-            </cache-container> -->
+                <!-- Datagrid Custom Code -->
+                <remote-store remote-servers="remote-jdg-server1"
+                              cache="default" socket-timeout="60000"
+                              preload="true" passivation="false" purge="false" shared="true"/>
+            </cache-container>
             <cache-container name="ejb" aliases="sfsb" default-cache="repl" module="org.wildfly.clustering.ejb.infinispan">
                 <transport lock-timeout="60000"/>
                 <replicated-cache name="repl">
@@ -400,17 +404,6 @@
                     <expiration max-idle="100000"/>
                 </invalidation-cache>
                 <replicated-cache name="timestamps"/>
-            </cache-container>
-            <!-- Datagrid Custom Code -->
-            <cache-container name="example-cache" default-cache="dist" module="org.wildfly.clustering.web.infinispan" statistics-enabled="true">
-              <transport lock-timeout="60000"/>
-              <invalidation-cache name="jdg">
-                <locking isolation="REPEATABLE_READ"/>
-                <transaction mode="BATCH"/>
-                <remote-store remote-servers="remote-jdg-server1"
-                              cache="default" socket-timeout="60000"
-                              preload="true" passivation="false" purge="false" shared="true"/>
-              </invalidation-cache>
             </cache-container>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:io:2.0">
