@@ -6,7 +6,7 @@
 
     <replication-config>
         <replication-granularity>SESSION</replication-granularity>
-        <cache-name>example-infinispan.jdg</cache-name>
+        <cache-name>example-cache.jdg</cache-name>
     </replication-config>
 
 </jboss-web>
